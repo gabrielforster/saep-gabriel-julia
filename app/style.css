@@ -116,6 +116,8 @@ main {
     color: #000;
 }
 
+
+
 .modal.open {
     visibility: visible;
     opacity: 1;
@@ -135,6 +137,7 @@ main {
     background: #fff;
     position: relative;
     padding: 30px;
+    width: 40vw;
 }
 
 .modal-close {
@@ -150,9 +153,66 @@ main {
     cursor: pointer;
 }
 
+
 .cars-list{
     display: flex;
     flex-direction: column-reverse;
-    align-items: center;
+    align-items: flex-start;
     justify-content: start;
+}
+
+.modal h2 {
+    width: 100%;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-left: 35%;
+}
+
+.car {
+    padding-top: 2vh;
+    display: flex;
+    width: 100%;
+}
+
+.car button {
+    float: right;
+    right: 0;
+    align-self: end;
+    background-color: #7814ff;
+    color: #fff;
+    padding: 3% 6%;
+    margin-left: auto;
+    border: none;
+    border-radius: 5px
+}
+
+.car button:hover {
+    cursor: pointer;
+    background-color: #0000ff
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+select {
+    height: 5vh;
+    margin-top: 2vh;
+}
+
+label {
+    margin-top: 2vh;
+}
+
+#confirm-button {
+    width: 50%;
+    color: #fff;
+    background-color: #7814ff;
+    border: none;
+    border-radius: 5px;
+    height: 7vh;
+    margin-top: 5vh;
+    align-self: center;
+    font-size: 1.2rem;
 }
