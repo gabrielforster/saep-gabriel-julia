@@ -82,16 +82,11 @@ function mountCarSellModal(){
 		updateConfirmButton();
 	})
 
-	const body = {
-		cliente: clientSelected,
-		concessionaria: concessionariaSelected,
-		carro: car
-	}
-
-
 	confirmButton.addEventListener("click", async (event) => {
 		fetch(`http://localhost:3000/api/areas/vendas/${car.id}`)
 		
+		const modal = document.getElementById("modal-confirmar");
+		modal.classList.remove("open");
 		clearModal();
 	})
 
