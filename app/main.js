@@ -87,7 +87,8 @@ function mountCarSellModal(){
 		
 		const modal = document.getElementById("modal-confirmar");
 		modal.classList.remove("open");
-		clearModal();
+
+		window.location.reload();
 	})
 
 }
@@ -100,6 +101,12 @@ function getCarsFromArea(id) {
   const modalDiv = document.getElementById("modal-content");
   const h2 = document.createElement("h2");
   h2.innerText = `Área ${areaId}`;
+
+	if(!cars.length){
+		const p = document.createElement("p");
+		p.innerText = "Nenhum carro disponível nessa área";
+		modalDiv.appendChild(p);
+	}
 
   cars.forEach((car) => {
     const div = document.createElement("div");
