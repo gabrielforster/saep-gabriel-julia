@@ -6,7 +6,9 @@ const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const app = express();
 app.use(express.json());
 app.use(express.static(__dirname + "/app"));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/app/index.html");

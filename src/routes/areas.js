@@ -27,4 +27,19 @@ router.get("/:area", async (req, res) => {
   }
 });
 
+router.get("/vendas/:id", async (req, res) => {
+  try {
+    const [result] = await db.query(
+      "SELECT * FROM automoveis_alocacao WHERE id = ?", [req.params.id]
+    );
+
+    await db.query(`UPDATE automoveis_alocacao SET quantidade = ${result[0].quantidade - 1} WHERE id = ?`, [req.params.id])
+
+    res.status(200)
+  } catch (error) {
+    console.error(error)
+  }
+});
+
+
 export default router;

@@ -32,10 +32,10 @@ function mountCarSellModal(){
 	title.innerText = car.modelo;
 
 	const clientSelect = document.getElementById("select-cliente");
-	const defaultOption = document.createElement("option");
-	defaultOption.innerText = "Selecione um cliente";
-	defaultOption.value = "";
-	clientSelect.appendChild(defaultOption);
+	const defaultOptionClient = document.createElement("option");
+	defaultOptionClient.innerText = "Selecione um cliente";
+	defaultOptionClient.value = "";
+	clientSelect.appendChild(defaultOptionClient);
 	clientes.forEach(cliente => {
 		const option = document.createElement("option");
 		option.value = cliente.id;
@@ -44,16 +44,61 @@ function mountCarSellModal(){
 	})
 
 	const concessionariaSelect = document.getElementById("select-concessionaria");
-	concessionarias.forEach(concessionaria => {
+	const defaultOptionConce = document.createElement("option");
+	defaultOptionConce.innerText = "Selecione uma concessionaria";
+	defaultOptionConce.value = "";
+	concessionariaSelect.appendChild(defaultOptionConce);
+	
+	const formattedConcessionarias = concessionarias.filter(conc => car.id_concessionaria === conc.id) 
+
+	formattedConcessionarias.forEach(concessionaria => {
 		const option = document.createElement("option");
 		option.value = concessionaria.id;
 		option.innerText = concessionaria.nome;
 		concessionariaSelect.appendChild(option);
 	})
 
+	const confirmButton = document.getElementById("confirm-button");
+
+	confirmButton.disabled = true;
+
+	let clientSelected = null;
+	let concessionariaSelected = null;
+
+	function updateConfirmButton(){
+		if(clientSelected && concessionariaSelected){
+			confirmButton.disabled = false;
+		}else{
+			confirmButton.disabled = true;
+		}
+	}
+
+	clientSelect.addEventListener("change", (event) => {
+		clientSelected = event.target.value;
+	})
+
+	concessionariaSelect.addEventListener("change", (event) => {
+		concessionariaSelected = event.target.value;
+		updateConfirmButton();
+	})
+
+	const body = {
+		cliente: clientSelected,
+		concessionaria: concessionariaSelected,
+		carro: car
+	}
+
+
+	confirmButton.addEventListener("click", async (event) => {
+		fetch(`http://localhost:3000/api/areas/vendas/${car.id}`)
+		
+		clearModal();
+	})
+
 }
 
 function getCarsFromArea(id) {
+	clearModal()
   const areaId = Number(id.slice(4, 6));
   const cars = carros.filter((carro) => carro.area === areaId);
 
@@ -109,7 +154,8 @@ function changeDivColor(areaId, divId) {
   const div = document.getElementById(divId);
 
   const carsWithAreaId = carros.filter((carro) => carro.area === areaId);
-  if (carsWithAreaId.length) {
+  if (!carsWithAreaId.length) {
+		div.style.color = "#000"
     div.style.backgroundColor = "#FFF";
   }
 }
@@ -133,8 +179,13 @@ async function getConcessionarias() {
 	concessionarias = response;
 }
 
-getConcessionarias()
-getClientes()
-modalsListeners();
-getCarros();
-fillAreas();
+async function main(){
+	await getCarros();
+	getConcessionarias()
+	getClientes()
+	modalsListeners();
+	fillAreas();
+}
+
+
+main()
