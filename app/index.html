@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carros</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./main.js"></script>
+  </head>
+  <body>
     <main>
-        <div class="area" id="area10"><p>10</p></div>
-        <div class="area" id="area5"><p>5</p></div>
-        <div class="area" id="area3"><p>3</p></div>
-        <div class="area" id="area1"><p>1</p></div>
-        <div class="area" id="area7"><p>7</p></div>
-        <div class="area" id="area8"><p>8</p></div>
-        <div class="area" id="area9"><p>9</p></div>
-        <div class="area" id="area6"><p>6</p></div>
-        <div class="area" id="area11"><p>11</p></div>
-        <div class="area" id="area4"><p>4</p></div>
-        <div class="area" id="area2"><p>2</p></div>
+      <div class="container">
+        <a data-modal="modal-vender">ABRIR Modal</a>
+      </div>
 
-        <div class="modal" id="modal-area">
-            <div class="content">
-                <h2></h2>
-                <p>Modelo: </p>
-                <p id="modelo-carro"></p>
-                <p>Preço: </p>
-                <p id="preco-carro"></p>
-                <button>Vender</button>
-            </div>
-        </div>
+      <div class="area" id="area10" data-modal="modal-vender"><p>10</p></div>
+      <div class="area" id="area05" data-modal="modal-vender"><p>5</p></div>
+      <div class="area" id="area03" data-modal="modal-vender"><p>3</p></div>
+      <div class="area" id="area01" data-modal="modal-vender"><p>1</p></div>
+      <div class="area" id="area07"	data-modal="modal-vender"><p>7</p></div>
+      <div class="area" id="area08" data-modal="modal-vender"><p>8</p></div>
+      <div class="area" id="area09" data-modal="modal-vender"><p>9</p></div>
+      <div class="area" id="area06" data-modal="modal-vender"><p>6</p></div>
+      <div class="area" id="area11" data-modal="modal-vender"><p>11</p></div>
+      <div class="area" id="area04" data-modal="modal-vender"><p>4</p></div>
+      <div class="area" id="area02" data-modal="modal-vender"><p>2</p></div>
 
-        <div class="modal" id="modal-confirmar">
-            <div class="content">
-                <h2></h2>
-                <label for="cliente">Cliente: </label>
-                <select name="cliente" id="select-cliente"></select>
-                <label for="concessionaria">Concessionária: </label>
-                <select name="concessionaria" id="select-concessionaria"></select>
-                <button disabled>Confirmar</button>
-            </div>
+      <div class="modal" id="modal-vender">
+        <div class="modal-bg modal-exit"></div>
+        <div class="modal-container" id="modal-vender-content">
+          <button class="modal-close modal-exit">X</button>
+		  <div id="modal-content" class="cars-list"></div>
         </div>
+      </div>
+
+      <div class="modal" id="modal-confirmar">
+		<div class="modal-bg modal-exit"></div>
+        <div class="modal-container" id="modal-vender-content">
+          <button class="modal-close modal-exit">X</button>
+		
+		  <div class="content">
+			<h2 id="car-name"></h2>
+			<label for="cliente">Cliente: </label>
+			<select name="cliente" id="select-cliente"></select>
+			<label for="concessionaria">Concessionária: </label>
+			<select name="concessionaria" id="select-concessionaria"></select>
+			<button disabled>Confirmar</button>
+		  </div>
+        </div>
+      </div>
     </main>
-</body>
+  </body>
 </html>
