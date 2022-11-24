@@ -1,0 +1,101 @@
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    font-family:'Segoe UI', sans-serif;
+    color: #fff;
+}
+
+.area {
+    width: 10vw;
+    height: 10vh;
+    background-color: #0000ff;
+    border: solid #000 1px; 
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.area:hover {
+    cursor: pointer;
+    background-color: #7814ff;
+}
+
+#area10 {
+    height: 90vh;
+    width: 25vw;
+    right: 5vw;
+}
+
+#area6 {
+    width: 10vw;
+    height: 7vh;
+    right: 5vw;
+}
+
+#area5 {
+    width: 45vw;
+    height: 50vh;
+    bottom: 0;
+    right: 23vw;
+}
+
+#area3 {
+    width: 30vw;
+    height: 40vh;
+    bottom: 0;
+    left: 10vw
+}
+
+#area3 p {
+    margin-top: 10vh;
+}
+
+#area1 {
+    width: 20vw;
+    height: 15vw;
+    bottom: 20vh
+}
+
+#area4 {
+    width: 15vw;
+    height: 17vh;
+    top: 46vh;
+    left: 17vw;
+}
+
+#area7 {
+    width: 12vw;
+    height: 14vh;
+    left: 32vw;
+    top: 36vh;
+}
+
+#area8 {
+    width: 12vw;
+    height: 12vh;
+    top: 18vh;
+    left: 25vw;
+}
+
+#area9 {
+    width: 12vw;
+    height: 14vh;
+    left: 37vw;
+    top: 17vh;
+}
+
+#area11 {
+    width: 5vw;
+    height: 15vh;
+    left: 35vw;
+}
+
+#area2 {
+    width: 5vw;
+    height: 12vh;
+    left: 33vw;
+    bottom: 23vh;
+}
