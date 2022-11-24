@@ -45,7 +45,7 @@ function mountCarSellModal(){
 
 	const concessionariaSelect = document.getElementById("select-concessionaria");
 	const defaultOptionConce = document.createElement("option");
-	defaultOptionConce.innerText = "Selecione uma concessionaria";
+	defaultOptionConce.innerText = "Selecione uma concessionária";
 	defaultOptionConce.value = "";
 	concessionariaSelect.appendChild(defaultOptionConce);
 	
